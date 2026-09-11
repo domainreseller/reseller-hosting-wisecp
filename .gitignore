@@ -1,1 +1,6 @@
-.idea
+.idea/
+.DS_Store
+*.log
+.superpowers/
+docs/superpowers/*
+CLAUDE.md
