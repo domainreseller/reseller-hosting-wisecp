@@ -1,205 +1,252 @@
-<h1 align="center">DNA Reseller Hosting</h1>
+<div align="center">
+  <a href="README-TR.md">TR <img style="padding-top: 8px" src="https://raw.githubusercontent.com/yammadev/flag-icons/master/png/TR.png" alt="TR" height="20" /></a>
+  <a href="README.md"> | EN <img style="padding-top: 8px" src="https://raw.githubusercontent.com/yammadev/flag-icons/master/png/US.png" alt="EN" height="20" /></a>
+  <a href="README-DE.md"> | DE <img style="padding-top: 8px" src="https://raw.githubusercontent.com/yammadev/flag-icons/master/png/DE.png" alt="DE" height="20" /></a>
+  <a href="README-SA.md"> | AR <img style="padding-top: 8px" src="https://raw.githubusercontent.com/yammadev/flag-icons/master/png/SA.png" alt="AR" height="20" /></a>
+  <a href="README-NL.md"> | NL <img style="padding-top: 8px" src="https://raw.githubusercontent.com/yammadev/flag-icons/master/png/NL.png" alt="NL" height="20" /></a>
+  <a href="README-AZ.md"> | AZ <img style="padding-top: 8px" src="https://raw.githubusercontent.com/yammadev/flag-icons/master/png/AZ.png" alt="AZ" height="20" /></a>
+  <a href="README-CN.md"> | CN <img style="padding-top: 8px" src="https://raw.githubusercontent.com/yammadev/flag-icons/master/png/CN.png" alt="CN" height="20" /></a>
+  <a href="README-FR.md"> | FR <img style="padding-top: 8px" src="https://raw.githubusercontent.com/yammadev/flag-icons/master/png/FR.png" alt="FR" height="20" /></a>
+  <a href="README-IT.md"> | IT <img style="padding-top: 8px" src="https://raw.githubusercontent.com/yammadev/flag-icons/master/png/IT.png" alt="IT" height="20" /></a>
+  <a href="README-RU.md"> | RU <img style="padding-top: 8px" src="https://raw.githubusercontent.com/yammadev/flag-icons/master/png/RU.png" alt="RU" height="20" /></a>
+  <a href="README-ES.md"> | ES <img style="padding-top: 8px" src="https://raw.githubusercontent.com/yammadev/flag-icons/master/png/ES.png" alt="ES" height="20" /></a>
+</div>
 
-<p align="center">
-  <strong>Tek WiseCP sunucu modülüyle hem cPanel/WHM hem Plesk üzerinden paylaşımlı hosting satın.</strong><br>
-  Bir modül, iki panel — panel tipini siz seçmezsiniz, modül kendisi bulur.
-</p>
+<div align="center">
 
-<p align="center">
-  <img alt="WiseCP" src="https://img.shields.io/badge/WiseCP-self--hosted-4A90D9?style=flat-square">
-  <img alt="PHP" src="https://img.shields.io/badge/PHP-7.4%20%E2%80%93%208.4-777BB4?style=flat-square&logo=php&logoColor=white">
-  <img alt="cPanel/WHM" src="https://img.shields.io/badge/cPanel%2FWHM-destekleniyor-FF6C2C?style=flat-square">
-  <img alt="Plesk" src="https://img.shields.io/badge/Plesk-destekleniyor-53BCE6?style=flat-square">
-  <img alt="Lisans" src="https://img.shields.io/badge/lisans-özel-lightgrey?style=flat-square">
-</p>
+# DNA Reseller Hosting
 
-<p align="center">
-  <strong>Türkçe</strong>
-  · <a href="README.en.md">English</a>
-  · <a href="README.de.md">Deutsch</a>
-  · <a href="README.ru.md">Русский</a>
-  · <a href="README.az.md">Azərbaycan</a>
-  · <a href="README.ar.md">العربية</a>
-  · <a href="README.es.md">Español</a>
-  · <a href="README.fr.md">Français</a>
-</p>
+**Manage cPanel and Plesk reseller accounts from a single WiseCP server module.**
 
----
+One module, two panels. You never pick the panel type — the module asks the server itself and
+remembers which panel answered.
 
-## İçindekiler
+![WiseCP](https://img.shields.io/badge/WiseCP-self--hosted-4A90D9?style=flat-square)
+![PHP](https://img.shields.io/badge/PHP-7.4%20%E2%80%93%208.4-777BB4?style=flat-square&logo=php&logoColor=white)
+![cPanel](https://img.shields.io/badge/cPanel%2FWHM-supported-FF6C2C?style=flat-square)
+![Plesk](https://img.shields.io/badge/Plesk-supported-53BCE6?style=flat-square)
 
-- [Genel bakış](#genel-bakış)
-- [Özellik matrisi](#özellik-matrisi)
-- [Gereksinimler](#gereksinimler)
-- [Kurulum](#kurulum)
-- [Yapılandırma](#yapılandırma)
-  - [Adım 1 — Sunucu ekleme](#adım-1--sunucu-ekleme)
-  - [Adım 2 — Sunucu grupları (isteğe bağlı)](#adım-2--sunucu-grupları-isteğe-bağlı)
-  - [Adım 3 — Ürünü tanımlama](#adım-3--ürünü-tanımlama)
-- [Sorun giderme](#sorun-giderme)
-- [Loglar](#loglar)
-- [Değişiklik günlüğü](#değişiklik-günlüğü)
-- [Lisans](#lisans)
+</div>
 
 ---
 
-## Genel bakış
+## 📑 Contents
 
-Tek bir sunucu kaydı üzerinden iki panel ailesini de sürer. IP, bayi kullanıcı adı ve bir kimlik
-bilgisi girersiniz; modül sunucuyu gerçekten sorgular — tahmin değil, gerçek bir API çağrısı — ve
-hangi panelin yanıt verdiğini hatırlar.
-
-| | |
-|---|---|
-| **Modül türü** | WiseCP sunucu (Servers) modülü |
-| **Klasör adı** | `DNAHosting` |
-| **Sürüm** | 1.0.0 |
-| **Desteklenen paneller** | cPanel/WHM, Plesk |
-| **PHP** | 7.4 – 8.4 |
-| **Arayüz dilleri** | Türkçe, English (`lang/tr.php`, `lang/en.php`) |
+- [✨ What it does](#-what-it-does)
+- [📋 Requirements](#-requirements)
+- [🚀 Installation](#-installation)
+- [🔍 Logs and troubleshooting](#-logs-and-troubleshooting)
+- [🧩 Things worth knowing](#-things-worth-knowing)
+- [📄 Changelog](#-changelog)
 
 ---
 
-## Özellik matrisi
+## ✨ What it does
 
-| İşlem | cPanel/WHM | Plesk |
+| Feature | cPanel/WHM | Plesk |
 |---|:---:|:---:|
-| Bağlantı testi ve otomatik panel tespiti | ✔ | ✔ |
-| Hesap oluşturma | ✔ | ✔ |
-| Askıya alma / askıdan indirme | ✔ | ✔ |
-| Sonlandırma | ✔ | ✔ (sahiplik doğrulamalı) |
-| Şifre değiştirme | ✔ | ✔ |
-| Paket / plan değiştirme | ✔ | ✔ |
-| Disk ve trafik kullanımı (müşterinin hizmet sayfasında) | ✔ | ✔ |
-| Tek tıkla panel girişi — müşteri paneli | ✔ | ✔ |
-| Tek tıkla panel girişi — yönetici paneli | ✔ | ✔ |
+| Connection test and automatic panel detection | ✅ | ✅ |
+| Account creation | ✅ | ✅ |
+| Suspend / unsuspend | ✅ | ✅ |
+| Termination | ✅ | ✅ *(ownership verified)* |
+| Password change | ✅ | ✅ |
+| Package / plan change | ✅ | ✅ |
+| Disk & bandwidth usage sync | ✅ | ✅ |
+| One-click login to the client panel | ✅ | ✅ |
+| One-click login from the admin area | ✅ | ✅ |
+
+> 💡 **Built for resellers.** It does not need root or admin access; the module works with the
+> permissions of your own reseller account, and every account it creates counts against your quota.
 
 ---
 
-## Gereksinimler
+## 📋 Requirements
 
-- Yönetici erişiminiz olan, kendi sunucunuzda kurulu bir **WiseCP**
-- **cURL** ve **SimpleXML** eklentileri açık bir PHP (neredeyse her varsayılan kurulumda vardır)
-- Ya bir **cPanel/WHM bayi hesabı** (WHM API token'ı ile) ya da bir **Plesk bayi hesabı** (API anahtarı
-  ya da doğrudan panel şifresiyle)
-- WiseCP sunucusundan panel sunucusuna, panelin API portunda dışa açık ağ erişimi
+- **WiseCP**, self-hosted, with administrator access
+- **PHP** 7.4 – 8.4
+- PHP extensions: `curl`, `simplexml`
+- A **cPanel/WHM reseller account** (WHM API token) &nbsp;or&nbsp; a **Plesk reseller account**
+  (API key or the panel password)
+- Outbound access from the WiseCP server to the panel server on the panel's API port
 
-Veritabanı tablosu oluşturulmaz, Composer ile bir şey kurulmaz, derleme adımı yoktur.
+> ✅ No database table is created, no cron job is required, and there are no composer dependencies.
+> Installation is nothing more than copying a folder.
 
 ---
 
-## Kurulum
+## 🚀 Installation
 
-Modül klasörünü WiseCP kurulumunuza kopyalayın:
+### 1️⃣ Install the module
+
+Copy the `DNAHosting` folder into the `coremio/modules/Servers/` directory of your WiseCP
+installation.
 
 ```
-coremio/
-└── modules/
-    └── Servers/
-        └── DNAHosting/     ← klasörün tamamı buraya
+wisecp/
+└── coremio/
+    └── modules/
+        └── Servers/
+            └── DNAHosting/     ← here
 ```
 
-Kurulum bundan ibarettir. Sonrasında çalıştırılacak bir şey yok — migration yok, önbellek ısıtma yok,
-ayrı bir etkinleştirme adımı yok. Modül, sunucu ekleme ekranını bir sonraki açışınızda listede
-görünür.
+### 2️⃣ Add the server
+
+**Products / Services → Hosting/Server → Shared Server Settings → Add New Shared Server**
+
+| Field | What to enter |
+|---|---|
+| **Server Automation Type** | `DNAHosting` — the folder name, listed exactly like that |
+| **IP Address** | The real address of the panel server; the module connects here |
+| **Username** | Your reseller username on that panel |
+| **Password** | A WHM API token on cPanel, an API key or the panel password on Plesk |
+| **Connect with SSL** | Tick it |
+| **Port** | `2087` for cPanel, `8443` for Plesk |
+
+> ⚠️ **The Hostname field at the top of the form is only a label.** The module connects to
+> **IP Address**, never to that one. Your servers appear under this label in the server list.
+
+### 3️⃣ Test the connection
+
+Press **Test Connection** before saving, or simply save — WiseCP runs the test on its own.
+
+A green result confirms both the credentials and the detected panel. A failure shows the concrete
+HTTP code or panel error; see [Logs and troubleshooting](#-logs-and-troubleshooting).
+
+### 4️⃣ Create a server group
+
+If you have more than one server, use **Shared Server Settings → Server Groups** to create a group
+and bind the product to the group instead of a single server. Two distribution types are offered:
+
+- **Always add to the least full server.**
+- **Fill one server completely, then move on to the least full server.**
+
+Servers are moved between the **Unassigned → Assigned** lists with `Add` / `Remove`.
+
+> ⚠️ **Keep a group homogeneous per panel.** The package list on the product form is pulled from the
+> **single** server selected at that moment. If a group holds both a cPanel and a Plesk server, the
+> package name you picked may have no counterpart on the other panel, and an order landing on that
+> server fails with *package not found*.
+
+### 5️⃣ Configure the product
+
+**Products / Services → Hosting/Server → Web Hosting Packages** → open the package → **Module
+Settings** tab. Under **Server Selection**, choose **Single Server** or **Server Group** and pick
+your DNAHosting server. The module then draws its own fields:
+
+| Setting | Value |
+|---|---|
+| **Detected panel** | The panel actually found on that server, for example `cPanel / WHM`. An error here means detection failed |
+| **Package / Plan** | The package list pulled live from that server |
+| **Automatic Setup** | On: the order is provisioned automatically. Off: admin approval is required |
+
+> 💡 **Do not worry about the package prefix on cPanel.** For a package that shows up as
+> `bakcay328_paket2` in the panel, the module resolves the `username_` prefix itself. On Plesk the
+> list is every service plan defined on the server.
+
+**Save it — the module is ready to use.** 🎉
+
+**‼️From this point on you can manage cPanel and Plesk reseller accounts through the module across every WiseCP workflow. Creation, suspension and termination are entirely under WiseCP's control.**
 
 ---
 
-## Yapılandırma
+## 🔍 Logs and troubleshooting
 
-### Adım 1 — Sunucu ekleme
+**Tools → Logs → Module Logs**
 
-**Ürünler / Hizmetler → Hosting/Sunucu → Paylaşımlı Sunucu Ayarları → `Yeni Paylaşımlı Sunucu Ekle`**
-
-Formun **Sunucu Otomasyon Bilgileri** bölümünü doldurun:
-
-| Alan | Ne girilir |
-|---|---|
-| **Sunucu Otomasyon Türü** | `DNAHosting` — klasör adıdır, listede olduğu gibi görünür |
-| **IP Adresi** | Panel sunucusunun gerçek adresi; modül buraya bağlanır |
-| **Kullanıcı Adı** | O paneldeki bayi kullanıcı adınız |
-| **Şifre** | **cPanel:** WHM API token'ı. **Plesk:** API anahtarı ya da bayinin panel şifresi |
-| **SSL ile Bağlan** | İşaretleyin |
-| **Port** | cPanel için `2087`, Plesk için `8443` |
-
-Formun üst kısmındaki **Hostname** alanı yalnızca sizin için bir etikettir — modül bağlanmak için onu
-değil **IP Adresi** alanını kullanır. Sunucularınız liste ekranında bu etiketle görünür.
-
-### Adım 2 — Sunucu grupları (isteğe bağlı)
-
-Birden fazla sunucunuz varsa **Paylaşımlı Sunucu Ayarları → `Sunucu Grupları`** altında grup
-oluşturup ürünü tek bir sunucu yerine gruba bağlayabilirsiniz. Grup düzenleme ekranında iki dağıtım
-türü var:
-
-- **Her zaman en düşük doluluktaki sunucuya ekle.**
-- **Bir sunucu tamamen dolana kadar ekle. Ardından en düşük doluluktaki sunucuya geç.**
-
-Sunucular **Atanmamış → Atanmış** listeleri arasında `Ekle` / `Kaldır` ile taşınır.
-
-> [!IMPORTANT]
-> **Grubu panel bazında homojen tutun.** Ürün formundaki paket listesi o an seçili olan **tek bir**
-> sunucudan çekilir. Bir grupta hem cPanel hem Plesk sunucusu varsa seçtiğiniz paket adı diğer panelde
-> karşılık bulmayabilir ve o sunucuya düşen sipariş "paket bulunamadı" ile başarısız olur.
-
-### Adım 3 — Ürünü tanımlama
-
-**Ürünler / Hizmetler → Hosting/Sunucu → Web Hosting Paketleri** → paketi açın → **Modül Ayarları**
-sekmesi.
-
-**Sunucu Seçimi** altında **Tekil Sunucu** ya da **Sunucu Grubu** seçip DNAHosting sunucunuzu (veya
-grubunuzu) işaretleyin. Seçim yapıldığı anda modül kendi alanlarını çizer:
-
-| Alan | Anlamı |
-|---|---|
-| **Tespit edilen panel** | Modülün o sunucuda gerçekten bulduğu panel — örneğin `cPanel / WHM`. Tespitin çalıştığını burada görürsünüz; bir sorun varsa bu satırda hata metni belirir. |
-| **Paket / Plan** | O sunucudan canlı çekilen paket listesi |
-| **Otomatik Kurulum** | Açıkken sipariş otomatik kurulur; kapalıyken yönetici onayı gerekir |
-
-Paket listesi panele göre gelir:
-
-- **cPanel:** sunucunun `listpkgs` çıktısındaki her paket. Paketleriniz alışıldık bayi ön ekini
-  taşıyorsa (örneğin `bakcay328_paket1`) modül ön eki kendisi çözer.
-- **Plesk:** sunucuda tanımlı her servis planı.
-
-Paketi seçin, formun geri kalanını her zamanki gibi doldurup kaydedin. Ürün artık satılabilir —
-sipariş verildiğinde tam hesap açma akışı yapılandırdığınız sunucuya karşı çalışır.
-
----
-
-## Sorun giderme
-
-| Belirti | Sebep | Çözüm |
+| Log | When it writes | What it contains |
 |---|---|---|
-| Bir çağrı (çoğunlukla bağlantı testi) `HTTP 403` ile düşüyor ya da hata metninde `cpanelresult` zarfı geçiyor | Token'ın arkasındaki bayi hesabının o fonksiyon için WHM düzeyinde yetkisi yok; WHM, WHM API 1 yerine cPanel **kullanıcı** API'siyle yanıt verdi | WHM'de **Resellers → Edit Reseller's ACL List**'i açıp bayiye modülün kullandığı yetkileri verin: hesap listeleme ve özeti, hesap oluşturma, askıya alma, sonlandırma, şifre değiştirme, paket yükseltme, paket listeleme, trafik okuma ve oturum oluşturma. Ardından token'ı, **o bayi olarak giriş yapmışken** **WHM → Development → Manage API Tokens**'tan yeniden üretin — cPanel arayüzünden üretilen token WHM erişimi taşımaz |
-| `Plesk (11003)` | API anahtarı, WiseCP'nin bağlandığı IP'den başka bir adres için üretilmiş | Doğru IP için Plesk sunucusunda yeni anahtar üretin ya da Şifre alanına panel şifresini yazın |
-| `Plesk (1014)` | Plesk istek gövdesini reddetti — bir eleman eksik ya da bu sunucunun konuştuğu XML-API sürümü için yanlış yerde | Modülün güncel sürümünü kullandığınızı doğrulayın; modül logu Plesk'in tam olarak hangi elemana itiraz ettiğini gösterir |
-| Ürün formunda paket listesi yerine hata metni | Tespit ya da paket çağrısı başarısız oldu; sebep aynı satırda yazılıdır | Metindeki somut hataya göre yukarıdaki satırlardan birini uygulayın |
+| **Module Logs**<br>*Tools → Logs → Module Logs* | Only while the **Module Logs** feature is on | Every request sent to the panel and the response it returned, tagged with the operation name such as `createacct` or `webspace.add` |
 
-Diğer her HTTP hatası, panelin yanıt gövdesinden çıkarılmış düz metin bir özetle gelir; çıplak bir durum
-kodu hiçbir zaman hikâyenin tamamı değildir. Tam istek ve yanıt için modül loguna bakın.
+> 💡 The switch that enables logging sits at the top of that same page. Turn it on before
+> reproducing the problem, then turn it back off.
 
----
+> 🔐 The server's API token or password, any account password the module generates or changes, and
+> SSO session tokens are masked with `***` **before anything is written** — in the request and in
+> the response alike.
 
-## Loglar
+### Common errors
 
-**Araçlar → İşlem Kayıtları (Logs) → Modül İşlem Kayıtları**
+| Symptom | Cause and fix |
+|---|---|
+| `HTTP 403`, or a `cpanelresult` envelope in the error text | The reseller behind the token has no WHM-level privilege for that call. Grant the account listing, creation, suspension, termination, password, package upgrade, package listing, bandwidth and session privileges in **WHM → Resellers → Edit Reseller's ACL List**, then regenerate the token **as that reseller** in **WHM → Development → Manage API Tokens** |
+| Plesk **11003** | The API key was issued for a different IP — generate a new one for the address WiseCP connects from, or put the panel password in the Password field |
+| Plesk **1014** | Plesk rejected the request body for the XML-API version this server speaks. Check that you run the current module version; the module log names the element it objected to |
+| An error text instead of the package list on the product form | Detection or the package call failed; the reason is written on the same line |
 
-Modülün gönderdiği her istek ve aldığı her yanıt, işlem adıyla (örneğin `createacct`, `webspace.add`)
-etiketlenerek buraya yazılır. Kayıt yalnızca **Modül İşlem Kayıtları** özelliği açıkken tutulur; o
-anahtar aynı sayfanın üst kısmındadır.
-
-> [!NOTE]
-> Sunucunun API token'ı/şifresi, modülün ürettiği ya da değiştirdiği hesap şifreleri ve SSO oturum
-> jetonları — hem istekte hem yanıtta — yazılmadan önce `***` ile maskelenir.
-
----
-
-## Değişiklik günlüğü
-
-Sürüm sürüm değişiklikler için [CHANGELOG.md](CHANGELOG.md) dosyasına bakın.
+> 💡 Every other HTTP error arrives with a plain-text summary extracted from the panel's response
+> body — a bare status code is never the whole story.
 
 ---
 
-## Lisans
+## 🧩 Things worth knowing
 
-Özel. Tüm hakları saklıdır.
+<details>
+<summary><b>Panel differences</b></summary>
+
+<br>
+
+- **Termination on Plesk is ownership-verified.** Every account the module opens is tagged with an
+  internal id; that tag is checked before any operation, so the module can never be pointed at a
+  subscription created by hand in the panel.
+- **Changing the domain of a live service is refused on Plesk.** A Plesk subscription is found by
+  its domain, so editing it would make every later operation fail permanently. On cPanel the domain
+  can be edited; the account keeps serving the old domain until you change it in the panel.
+- **Duplicate domain protection.** Termination is refused while the same domain is still attached to
+  another active or suspended service on the same server.
+
+</details>
+
+<details>
+<summary><b>Panel detection</b></summary>
+
+<br>
+
+The panel type is never configured. On the first call the module probes the server and remembers
+which panel answered.
+
+The port only decides which panel is tried **first**: `8443` and `8880` try Plesk first, anything
+else tries cPanel first. The decision itself always comes from a real API call, and the other panel
+is tried when the first guess does not answer. A wrong port slows detection down, it does not break
+it.
+
+</details>
+
+<details>
+<summary><b>Credentials</b></summary>
+
+<br>
+
+Both panels take their credential in the **Password** field, which WiseCP stores encrypted. The
+**Access Hash** field is never used by this module and is not shown on DNAHosting servers.
+
+On Plesk the module first tries the credential as an API key and falls back to HTTP basic auth on
+its own, so you do not have to tell it which one you entered.
+
+</details>
+
+<details>
+<summary><b>Out of scope</b></summary>
+
+<br>
+
+Email account and forwarder management, selling reseller accounts, importing existing accounts into
+WiseCP, and a *log in to the root panel* button in the admin area. The module holds a **reseller**
+credential only — never root — so there is no root panel for it to open.
+
+</details>
+
+---
+
+## 📄 Changelog
+
+Version-by-version changes are in [CHANGELOG.md](CHANGELOG.md).
+
+---
+
+<div align="center">
+
+**DNA Reseller Hosting** · cPanel & Plesk reseller module for WiseCP
+
+[domainnameapi.com](https://www.domainnameapi.com) · [Reseller panel](https://dm.domainnameapi.com/hosting)
+
+</div>
